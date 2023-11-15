@@ -5,6 +5,7 @@ body {
     line-height: 1.5;
     letter-spacing: 0.02em;
     background-color: #fff;
+    /* width: 1440px; */
 }
 
 ul {
@@ -27,13 +28,14 @@ p {
 
 img {
     display: block;
+    max-width: 100%;
 }
 
 .header-content {
     border-bottom: 1px solid #e7e9fc;
 }
 
-.header-content .container {
+.container.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -80,8 +82,21 @@ img {
     color: #404bbf;
 }
 
-.navigation-link:active {
-    color: #404bbf;
+.navigation-link.hover {
+    position: relative;
+}
+
+.navigation-link.hover:active::after {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    margin-top: 20px;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: #404bbf;
+    border-radius: 2px;
+    display: block;
 }
 
 .navigation-link {
@@ -92,6 +107,7 @@ img {
     letter-spacing: 0.02em;
     padding-top: 24px;
     padding-bottom: 24px;
+    transition-property: color;
 }
 
 .contacts-container {
@@ -113,6 +129,7 @@ img {
     letter-spacing: 0.02em;
     padding-top: 24px;
     padding-bottom: 24px;
+    transition-property: color;
 }
 
 .contacts-link:hover,
@@ -122,6 +139,12 @@ img {
 
 .main-page {
     background-color: #2e2f42;
+    background-image: linear-gradient(to bottom,
+            rgba(46, 47, 66, 0.7),
+            rgba(46, 47, 66, 0.7)),
+        url(../images/people-office.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
     padding-top: 188px;
     padding-bottom: 188px;
     box-sizing: border-box;
@@ -155,6 +178,7 @@ img {
     height: 56px;
     margin-top: 48px;
     margin-left: 495px;
+    transition-property: background-color;
 }
 
 .main-page-btn:hover,
@@ -198,6 +222,17 @@ img {
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: 0.02em;
+    margin-bottom: 8px;
+}
+
+.methods-icon {
+    width: 264px;
+    height: 112px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #8e8f99;
+    background: #f4f4fd;
+    padding: 24px 100px;
     margin-bottom: 8px;
 }
 
@@ -254,6 +289,7 @@ img {
 
 .team-item-descr {
     text-align: center;
+    margin-bottom: 8px;
 }
 
 .portfolio {
@@ -289,6 +325,10 @@ img {
     flex-direction: column;
     align-items: flex-start;
     flex-shrink: 0;
+
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .portfolio-list-item-text {
@@ -296,7 +336,6 @@ img {
     border: 1px solid #e7e9fc;
     border-top: none;
     width: 360px;
-
 }
 
 .portfolio-item {
@@ -308,10 +347,46 @@ img {
     margin-bottom: 8px;
 }
 
+.overlay {
+    padding: 40px 32px 164px;
+    background-color: #4d5ae5;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 360px;
+    height: 300px;
+    flex-shrink: 0;
+    transform: translateX(-100%);
+    transition: transform 250ms ease-in-out;
+}
+
+.overlay p {
+    color: #f4f4fd;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
+
+.portfolio-list-item:hover .overlay {
+    transform: translateX(0);
+}
+
 .footer-content {
     background-color: #2e2f42;
     padding-top: 100px;
     padding-bottom: 100px;
+}
+
+footer .container {
+    max-width: 1158px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    display: flex;
 }
 
 .logo-footer {
@@ -324,6 +399,7 @@ img {
     text-transform: uppercase;
     display: inline-block;
     margin-bottom: 16px;
+    margin-right: 269px;
 }
 
 .logo-footer-accent {
@@ -333,6 +409,45 @@ img {
 .text-footer {
     color: #f4f4fd;
     width: 264px;
+}
+
+.social-links {
+    display: flex;
+    gap: 24px;
+    flex-shrink: 0;
+    align-items: flex-end;
+}
+
+.social-media-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+}
+
+.social-links .link {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition-property: background-color;
+}
+
+.social-links .link:hover {
+    background-color: #404bbf;
+}
+
+footer .social-links .link:hover {
+    background-color: #31d0aa;
+}
+
+.social-links .icon {
+    fill: #f4f4fd;
 }
 
 .container {
